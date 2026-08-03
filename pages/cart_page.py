@@ -33,7 +33,7 @@ class CartPage:
         self.cart_rows = page.locator("tr[id^='product-']")  # each product is a table row
         self.delete_buttons = page.locator(".cart_quantity_delete")
         self.empty_cart_message = page.get_by_text("Cart is empty! Click here to")
-        self.proceed_to_checkout = page.get_by_role("link", name="Proceed To Checkout")
+        self.proceed_to_checkout = self.proceed_to_checkout = page.get_by_text("Proceed To Checkout")
 
     def navigate(self):
         """Navigate directly to the cart page."""
