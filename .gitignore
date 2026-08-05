@@ -6,3 +6,7 @@ playwright-report/
 .env
 .pytest_cache/
 tests/ui/snapshots/*_current.png
+report.html
+*.html
+assets/
+.vscode/
