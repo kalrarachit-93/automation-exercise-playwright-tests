@@ -5,3 +5,4 @@ test-results/
 playwright-report/
 .env
 .pytest_cache/
+tests/ui/snapshots/*_current.png
