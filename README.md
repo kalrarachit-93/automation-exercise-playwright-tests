@@ -18,6 +18,8 @@ and phone numbers. That means:
 
 See [`tests/utils/ai_data_generator.py`](tests/utils/ai_data_generator.py) for the implementation.
 
+![Tests](https://github.com/kalrarachit-93/automation-exercise-playwright-tests/actions/workflows/tests.yml/badge.svg)
+
 ## Test coverage — 36 tests
 
 | Suite | Tests | What it covers |
