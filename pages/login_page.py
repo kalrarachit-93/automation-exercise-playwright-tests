@@ -68,3 +68,13 @@ class LoginPage:
     def expect_signup_error(self):
         """Assert the 'email already exists' error message is visible."""
         expect(self.signup_error).to_be_visible()
+
+    def expect_client_side_block(self):
+        """Assert the login form was stopped by browser-side HTML5 validation
+        (type=email / required) - i.e. the form is invalid and was never
+        submitted to the server.
+        """
+        form_is_invalid = self.login_button.evaluate(
+            "btn => !btn.closest('form').checkValidity()"
+        )
+        assert form_is_invalid, "Expected HTML5 validation to block submission"

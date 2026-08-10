@@ -1,0 +1,6 @@
+scenario,email,password,expected_result
+valid_format_unregistered,ghost.user.99887@testmail.com,SomePassword123,server_error
+invalid_email_format,not-an-email,SomePassword123,client_blocked
+empty_password,ghost.user.99887@testmail.com,,client_blocked
+sql_injection_attempt,' OR 1=1 --,anything,client_blocked
+whitespace_email,   ,SomePassword123,client_blocked
