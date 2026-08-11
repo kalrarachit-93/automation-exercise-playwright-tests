@@ -146,3 +146,21 @@ def test_various_expiration_dates_accepted(page: Page, month: str, year: str):
     )
     checkout_page.submit_payment()
     checkout_page.expect_order_placed()
+
+def test_checkout_with_reused_auth(logged_in_page: Page):
+    """Same checkout flow, but starting from saved auth state - no UI registration."""
+    page = logged_in_page
+    home_page = HomePage(page)
+    cart_page = CartPage(page)
+    checkout_page = CheckoutPage(page)
+
+    home_page.navigate()
+    cart_page.add_product_to_cart(index=0)
+    cart_page.go_to_cart_from_modal()
+    cart_page.proceed_to_checkout.click()
+
+    checkout_page.add_comment("Delivered via reused auth state")
+    checkout_page.click_place_order()
+    checkout_page.fill_payment_details()
+    checkout_page.submit_payment()
+    checkout_page.expect_order_placed()

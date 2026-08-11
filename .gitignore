@@ -10,3 +10,5 @@ report.html
 *.html
 assets/
 .vscode/
+test-results/
+tests/ui/.auth/
