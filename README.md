@@ -109,7 +109,7 @@ pytest tests/ui/test_cart.py --headed --slowmo=800   # watch a suite run visuall
 
 ## About
 
-Built by [Rachit Kalra](https://github.com/kalrarachit-93) — 8 years of software QA,
+Built by [Rachit Kalra](https://github.com/kalrarachit-93) — 9 years of software QA,
 now building at the intersection of test automation and AI. Related projects:
 [ai-agent-eval-framework](https://github.com/kalrarachit-93/ai-agent-eval-framework) ·
 [test-case-generator](https://github.com/kalrarachit-93/test-case-generator)
