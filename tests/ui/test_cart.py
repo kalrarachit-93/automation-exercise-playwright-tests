@@ -13,6 +13,7 @@ from pages.home_page import HomePage
 from pages.cart_page import CartPage
 
 
+@pytest.mark.smoke
 def test_can_add_product_to_cart(page: Page):
     """Adding a product from the products page shows the confirmation modal."""
     home_page = HomePage(page)

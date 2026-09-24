@@ -8,6 +8,7 @@ in this folder.
 import pytest
 from playwright.sync_api import BrowserContext
 
+import os
 import json
 from pathlib import Path
 
@@ -40,7 +41,8 @@ def registered_user(browser: Browser):
     this state instead of re-registering through the UI.
     """
     AUTH_DIR.mkdir(exist_ok=True)
-    state_path = AUTH_DIR / "user_state.json"
+    worker = os.environ.get("PYTEST_XDIST_WORKER", "master")
+    state_path = AUTH_DIR / f"user_state_{worker}.json"
 
     context = browser.new_context()
     page = context.new_page()

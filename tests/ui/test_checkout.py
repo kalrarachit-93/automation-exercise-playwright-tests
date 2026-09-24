@@ -35,6 +35,7 @@ def register_and_login_new_user(page: Page):
     return user
 
 
+@pytest.mark.slow
 def test_guest_checkout_shows_login_prompt(page: Page):
     """Attempting to checkout as a guest shows a 'Register / Login' prompt."""
     home_page = HomePage(page)
@@ -49,6 +50,7 @@ def test_guest_checkout_shows_login_prompt(page: Page):
     checkout_page.expect_guest_checkout_modal()
 
 
+@pytest.mark.slow
 def test_logged_in_user_can_complete_checkout(page: Page):
     """A logged-in user can add a product, go through checkout, and see 'Order Placed!'."""
     register_and_login_new_user(page)
@@ -74,6 +76,7 @@ def test_logged_in_user_can_complete_checkout(page: Page):
     checkout_page.expect_order_placed()
 
 
+@pytest.mark.slow
 def test_checkout_comment_persists_to_payment(page: Page):
     """Comment added on checkout page is remembered when advancing to payment."""
     register_and_login_new_user(page)
@@ -94,6 +97,7 @@ def test_checkout_comment_persists_to_payment(page: Page):
     expect(page).to_have_url("https://automationexercise.com/payment")
 
 
+@pytest.mark.slow
 def test_payment_form_accepts_valid_card(page: Page):
     """Payment form accepts valid card details and proceeds to confirmation."""
     register_and_login_new_user(page)
@@ -121,6 +125,7 @@ def test_payment_form_accepts_valid_card(page: Page):
     checkout_page.expect_order_placed()
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize("month,year", [
     ("01", "2028"),
     ("06", "2029"),
@@ -147,6 +152,7 @@ def test_various_expiration_dates_accepted(page: Page, month: str, year: str):
     checkout_page.submit_payment()
     checkout_page.expect_order_placed()
 
+@pytest.mark.slow
 def test_checkout_with_reused_auth(logged_in_page: Page):
     """Same checkout flow, but starting from saved auth state - no UI registration."""
     page = logged_in_page

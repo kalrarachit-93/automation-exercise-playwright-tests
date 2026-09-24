@@ -13,6 +13,7 @@ from pages.home_page import HomePage
 from pages.product_page import ProductPage
 
 
+@pytest.mark.smoke
 def test_products_page_loads_with_products(page: Page):
     """The products page loads and shows a grid of products."""
     home_page = HomePage(page)

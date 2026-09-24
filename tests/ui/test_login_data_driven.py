@@ -31,6 +31,7 @@ def load_login_scenarios():
         ]
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize(
     "scenario,email,password,expected_result",
     load_login_scenarios(),

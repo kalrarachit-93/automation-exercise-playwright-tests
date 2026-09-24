@@ -11,6 +11,7 @@ import pytest
 from playwright.sync_api import APIRequestContext
 
 
+@pytest.mark.smoke
 def test_get_all_products(api_request: APIRequestContext):
     """GET /api/productsList returns HTTP 200 with a products array."""
     response = api_request.get("/api/productsList")
@@ -38,6 +39,7 @@ def test_products_have_expected_fields(api_request: APIRequestContext):
         assert field in first_product, f"Product missing '{field}' field"
 
 
+@pytest.mark.smoke
 def test_get_all_brands(api_request: APIRequestContext):
     """GET /api/brandsList returns HTTP 200 with a brands array."""
     response = api_request.get("/api/brandsList")

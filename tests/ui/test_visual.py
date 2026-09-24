@@ -18,6 +18,7 @@ from playwright.sync_api import Page, expect
 BASELINE_DIR = Path(__file__).parent / "snapshots"
 
 
+@pytest.mark.visual
 def test_login_page_visual(page: Page):
     """The login/signup page layout matches the committed baseline screenshot."""
     BASELINE_DIR.mkdir(exist_ok=True)

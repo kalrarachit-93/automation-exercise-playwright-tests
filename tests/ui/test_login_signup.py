@@ -13,6 +13,7 @@ from pages.signup_page import SignupPage
 from tests.utils.ai_data_generator import generate_test_user
 
 
+@pytest.mark.slow
 def test_new_user_can_register(page: Page):
     """A new user can complete the full signup flow and see 'Account Created!'."""
     user = generate_test_user()
@@ -27,6 +28,7 @@ def test_new_user_can_register(page: Page):
     signup_page.expect_account_created()
 
 
+@pytest.mark.slow
 def test_registered_user_can_login(page: Page):
     """After signing up, the same user can log in with their credentials."""
     user = generate_test_user()
@@ -71,6 +73,7 @@ def test_login_with_invalid_password_shows_error(page: Page):
     login_page.expect_login_error()
 
 
+@pytest.mark.slow
 def test_signup_with_existing_email_shows_error(page: Page):
     """Attempting to signup with an already-registered email shows the 'exists' error."""
     user = generate_test_user()
